@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg_color: #edf6f9;
+    --score_color: rgb(216, 216, 216);
+    --detail_bar_color: #61cfc4;
+    --game_area_color: #006d77;
+    --food_box_color: #ffffff;
+    --snake_head_color: #ff686b;
+}
+
+body {
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg_color);
+}
+
+.cover {
+    height: 70vmin;
+    width: 75vmin;
+    background-color: var(--detail_bar_color);
+    border-radius: 1.2%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.details {
+    color: var(--score_color);
+    font-size: 1.12rem;
+    font-weight: 600;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cover .game_area {
+    height: 100%;
+    width: 100%;
+    background-color: var(--game_area_color);
+    display: grid;
+    grid-template: repeat(35, 1fr) / repeat(35, 1fr);
+}
+
+.game_area .pry {
+    background-color: var(--food_box_color);
+}
+
+.game_area .snake {
+    background-color: var(--snake_head_color);
+}
+
+.arrow_controls {
+    display: none;
+    grid-template-columns: 1.5fr 1fr 1.5fr ;
+    grid-template-rows: repeat(3,1fr) ;
+    padding: 10px;
+}
+
+.arrow_controls .fa.fa-arrow-up, .fa.fa-arrow-down{
+    background-color: white;
+    padding: 5%;
+    border-radius: 50%;
+    place-self: center;
+}
+
+.arrow_controls .fa.fa-arrow-left{
+    background-color: white;
+    padding: 5%;
+    border-radius: 50%;
+    place-self: start;
+}
+
+.arrow_controls .fa.fa-arrow-right{
+    background-color: white;
+    padding: 5%;
+    border-radius: 50%;
+    place-self: end;
+}
+
+.fa-arrow-up{
+    grid-area: 1 / 2;
+}
+
+.fa-arrow-down{
+    grid-area: 3 / 2;
+}
+
+.fa-arrow-left{
+    grid-area: 2 / 2;
+}
+
+.fa-arrow-right{
+    grid-area: 2 / 2;
+}
+
+@media screen and (max-width : 400px) {
+    .cover {
+        height: 110vmin;
+        width: 95vmin;
+    }
+
+    
+    .details {
+        font-size: 0.8rem;
+        padding: 10px 15px;
+    }
+    
+    .arrow_controls {
+        display: grid;
+        font-size: 1.2rem;
+    }
+
+    .arrow_controls i {
+        
+        cursor: pointer;
+    }
+}
